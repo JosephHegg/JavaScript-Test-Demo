@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Quality Assurance Demo</title>
+	<style type="text/css">
+		h1{
+			text-align: center;
+		}
+		h3{
+			text-align: left;
+		}
+		table, th, td {
+			border: 5px solid;
+			text-align: center;
+		}
+		table{
+			width:80%;
+			height: 40%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		
+		
+	</style>
+</head>
+<body>
+	<button id="button_go_back" style="margin-bottom: 10px;">Back to Main Page</button>
+	<h1 id="page-title">ASCII</h1>
+	<table>
+		<tr>
+			<td colspan="3"><h1 id="savings_text">Savings</h1></td>
+		</tr>
+		<tr>
+			<td colspan="3">
+			<h1 id="savings_amount_text">$1000</td>
+		</tr>
+		<tr>
+			<td>
+				<h3 id="payment_value_prompt_naive">Enter a payment value:</h3>
+			</td>
+			<td>
+				<input type="number" id="payment_submission_naive">
+			</td>
+			<td>
+				<button id="payment_submission_button_naive" style="width: 100%; height: 100%;">Submit Payment</button>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h3 id="payment_value_prompt_check_noascii">Enter a payment value:</h3>
+			</td>
+			<td>
+				<input type="number" id="payment_submission_decent">
+			</td>
+			<td>
+				<button id="payment_submission_button_decent" style="width: 100%; height: 100%;">Submit Payment</button>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h3 id="payment_value_prompt_check_ascii">Enter a payment value:</h3>
+			</td>
+			<td>
+				<input type="number" id="payment_submission_great">
+			</td>
+			<td>
+				<button id="payment_submission_great" style="width: 100%; height: 100%;">Submit Payment</button>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<h3 id="payment_response_text">This message will react to user input.</h3>
+			</td>
+		</tr>
+	</table>
+	<!-- <script type="text/javascript" src="../Domain/ascii_instantiation.js"></script>-->
+</body>
+</html>

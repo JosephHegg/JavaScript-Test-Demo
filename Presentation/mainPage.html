@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Quality Assurance Demo</title>
+	<style type="text/css">
+		h1{
+			text-align: center;
+		}
+		table, th, td {
+			border: 5px solid;
+			text-align: center;
+		}
+		table{
+			width:80%;
+			height: 40%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		button{
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<h1>Testing Suite</h1>
+	<table>
+		<tr>
+			<td><button id="button_ascii">aaaaaaa</button></td>
+			<td><button id="button_basisPath">aaaaaaa</button></td>
+			<td><button id="button_bva">aaaaaaa</button></td>
+		</tr>
+		<tr>
+			<td><button id="button_pit_mutation">aaaaaaa</button></td>
+			<td><button id="button_security_data">aaaaaaa</button>
+			<td><button id="button_sql_injection_attack">aaaaaaa</button></td>
+		</tr>
+	</table>
+	<script type="module" src="../Domain/page_instantiation.js"></script>
+</body>
+</html>
