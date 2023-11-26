@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Quality Assurance Demo</title>
 	<style type="text/css">
+		
 		h1{
 			text-align: center;
 		}
@@ -27,27 +28,32 @@
 </head>
 <body>
 	<button id="button_go_back" style="margin-bottom: 10px;">Back to Main Page</button>
-	<h1 id="page_title">Cov Demo</h1>
+	<h1 id="page_title"></h1>
 	<table>
 		<tr>
-			<td colspan="3"><h1 id="if_else_statement">statement</h1></td>
+			<td colspan="3">
+				<h1 id="if_else_statement" style="white-space: pre-wrap; text-align: justify;"></h1>
+			</td>
+			
+		</tr>
 
 		<tr>
 			<td>
-				<h3 id="statement_message">Enter a value:</h3>
+				<h3 id="statement_message"></h3>
 			</td>
 			<td>
 				<input type="text" id="value_submission">
 			</td>
 			<td>
-				<button id="submit_button" style="width: 100%; height: 100%;">Submit Entry</button>
+				<button id="submit_button" style="width: 100%; height: 100%;"></button>
 			</td>
 		</tr>
 		<tr>
 			<td colspan="3">
-				<h3 id="result_message">This message will react to user input.</h3>
+				<h3 id="result_message"></h3>
 			</td>
 		</tr>
 	</table>
+	<script type="module" src="../Domain/basis_path_instantiation.js"></script>
 </body>
 </html>

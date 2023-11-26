@@ -12,7 +12,7 @@ function buildBasisPathTextBank(){
 }
 
 function buildSubmitResponseBank(){
-	const var submitResponseMap = new Map();
+	const submitResponseMap = new Map();
 
 	// could make a finite state machine but that seems a bit much for this example
 	// better for real world uses
@@ -20,6 +20,8 @@ function buildSubmitResponseBank(){
 	submitResponseMap.set("standby", "Waiting for a submission...");
 	submitResponseMap.set("yes_entered", "if conditional path made: observe console for output of test.");
 	submitResponseMap.set("else_entered", "else conditional path made: observe console for output of test");
+
+	return submitResponseMap;
 }
 
 buildBasisPathTextBank();

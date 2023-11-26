@@ -1,7 +1,4 @@
-import buttonInformationMap from '../DataSource/page_information.js';
-
-
-
+import {buttonInformationMap} from '../DataSource/page_information.js';
 
 loadButtons();
 
@@ -10,7 +7,7 @@ function loadButtons(){
 		var currButton = document.getElementById(key);
 		currButton.innerHTML = innerInformationMap.get("buttonText");
 		currButton.addEventListener("click", function() {
-			window.open('./' + innerInformationMap.get("buttonLink"));
+			window.location.href = ('./' + innerInformationMap.get("buttonLink"));
 		});
 	}
 

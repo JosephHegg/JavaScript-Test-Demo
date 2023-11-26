@@ -1,4 +1,5 @@
-var const GO_BACK_BUTTON_LINK = "ADD THIS LINK TODO";
+export const GO_BACK_BUTTON_LINK = "./mainPage.html";
+export const GO_BACK_BUTTON_TEXT = "Go Back to Main Page!";
 
 function buildInformationMap(){
 	for(var i = 0; i < buttonKeyList.length; i++){

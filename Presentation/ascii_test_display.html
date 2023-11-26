@@ -26,33 +26,34 @@
 	</style>
 </head>
 <body>
-	<button id="button_go_back" style="margin-bottom: 10px;">Back to Main Page</button>
-	<h1 id="page-title">ASCII</h1>
+	<button id="button_go_back" style="margin-bottom: 10px;"></button>
+	<h1 id="page_title"></h1>
 	<table>
 		<tr>
-			<td colspan="3"><h1 id="savings_text">Savings</h1></td>
+			<td colspan="3">
+			<h1 id="savings_text_value"></h1></td>
 		</tr>
 		<tr>
 			<td colspan="3">
-			<h1 id="savings_amount_text">$1000</td>
+			<h1 id="savings_amount_text"></h1></td>
 		</tr>
 		<tr>
 			<td>
-				<h3 id="payment_value_prompt_naive">Enter a payment value:</h3>
+				<h3 id="payment_value_prompt_naive"></h3>
 			</td>
 			<td>
-				<input type="number" id="payment_submission_naive">
+				<input type="number" id="payment_submission_naive" min="0">
 			</td>
 			<td>
-				<button id="payment_submission_button_naive" style="width: 100%; height: 100%;">Submit Payment</button>
+				<button id="payment_submission_button_naive" style="width: 100%; height: 100%;"></button>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<h3 id="payment_value_prompt_check_noascii">Enter a payment value:</h3>
+				<h3 id="payment_value_prompt_check_noascii"></h3>
 			</td>
 			<td>
-				<input type="number" id="payment_submission_decent">
+				<input type="number" id="payment_submission_decent" min="0">
 			</td>
 			<td>
 				<button id="payment_submission_button_decent" style="width: 100%; height: 100%;">Submit Payment</button>
@@ -60,21 +61,21 @@
 		</tr>
 		<tr>
 			<td>
-				<h3 id="payment_value_prompt_check_ascii">Enter a payment value:</h3>
+				<h3 id="payment_value_prompt_check_ascii"></h3>
 			</td>
 			<td>
-				<input type="number" id="payment_submission_great">
+				<input type="number" id="payment_submission_great" min="0">
 			</td>
 			<td>
-				<button id="payment_submission_great" style="width: 100%; height: 100%;">Submit Payment</button>
+				<button id="payment_submission_button_great" style="width: 100%; height: 100%;"></button>
 			</td>
 		</tr>
 		<tr>
 			<td colspan="3">
-				<h3 id="payment_response_text">This message will react to user input.</h3>
+				<h3 id="payment_response_text"></h3>
 			</td>
 		</tr>
 	</table>
-	<!-- <script type="text/javascript" src="../Domain/ascii_instantiation.js"></script>-->
+	<script type="module" src="../Domain/ascii_instantiation.js"></script>
 </body>
 </html>
