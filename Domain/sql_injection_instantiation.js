@@ -98,7 +98,7 @@ function runInsertAttack(){
 	// any attacks are inserted into an already structured query
 	// in this case their greeting is given the text entry of the attack, but the attack is not conducted
 
-	var query = "INSERT INTO Customers (Greeting) WHERE Customer.ID = userID VALUES (" + sql_attack_insert_content + ");";
+	var query = "INSERT INTO Customers (Greeting)\nWHERE Customer.ID = userID\nVALUES (\n" + sql_attack_insert_content + "\n);";
 
 	// run query in back end DB - if real case
 
@@ -118,7 +118,7 @@ function runReadAttack(){
 	// any attacks are inserted into an already structured query
 	// in this case their greeting is given the text entry of the attack, but the attack is not conducted
 
-	var query = "INSERT INTO Customers (Greeting) WHERE Customer.ID = userID VALUES (" + sql_attack_read_content + ");";
+	var query = "INSERT INTO Customers (Greeting)\nWHERE Customer.ID = userID\nVALUES (\n" + sql_attack_read_content + "\n);";
 
 	// run query in back end DB - if real case
 
@@ -138,7 +138,7 @@ function runUpdateAttack(){
 	// any attacks are inserted into an already structured query
 	// in this case their greeting is given the text entry of the attack, but the attack is not conducted
 
-	var query = "INSERT INTO Customers (Greeting) WHERE Customer.ID = userID VALUES (" + sql_attack_update_content + ");";
+	var query = "INSERT INTO Customers (Greeting)\nWHERE Customer.ID = userID\nVALUES (\n" + sql_attack_update_content + "\n);";
 
 	// run query in back end DB - if real case
 
@@ -158,7 +158,7 @@ function runDeleteAttack(){
 	// any attacks are inserted into an already structured query
 	// in this case their greeting is given the text entry of the attack, but the attack is not conducted
 
-	var query = "INSERT INTO Customers (Greeting) WHERE Customer.ID = userID VALUES (" + sql_attack_delete_content + ");";
+	var query = "INSERT INTO Customers (Greeting)\nWHERE Customer.ID = userID\nVALUES (\n" + sql_attack_delete_content + "\n);";
 
 	// run query in back end DB - if real case
 
@@ -178,7 +178,7 @@ function runDropAttack(){
 	// any attacks are inserted into an already structured query
 	// in this case their greeting is given the text entry of the attack, but the attack is not conducted
 
-	var query = "INSERT INTO Customers (Greeting) WHERE Customer.ID = userID VALUES (" + sql_attack_drop_db_content + ");";
+	var query = "INSERT INTO Customers (Greeting)\nWHERE Customer.ID = userID\nVALUES (\n" + sql_attack_drop_db_content + "\n);";
 
 	// run query in back end DB - if real case
 
@@ -227,7 +227,7 @@ function initalizeAllPageListeners(){
 }
 
 function logAttack(type, query){
-	console.log(type + "Attack: " + query);
+	console.log("\n" + type + "Attack:\n" + query);
 }
 
 window.onload = init();

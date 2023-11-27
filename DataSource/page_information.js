@@ -1,5 +1,13 @@
 export const GO_BACK_BUTTON_LINK = "./mainPage.html";
 export const GO_BACK_BUTTON_TEXT = "Go Back to Main Page!";
+export const pageInfoBank = new Map();
+const GITHUB_LINK = "TODO:LINK HERE"
+
+function buildPageInfoBank() {
+	pageInfoBank.set("page_title", "JavaScript Testing Suite");
+	pageInfoBank.set("github_message", "The source code for everything can be found here: " + GITHUB_LINK);
+}
+
 
 function buildInformationMap(){
 	for(var i = 0; i < buttonKeyList.length; i++){
@@ -29,7 +37,6 @@ const buttonKeyList = [
 	"button_basisPath",
 	"button_bva",
 	"button_pit_mutation",
-	"button_security_data",
 	"button_sql_injection_attack"
 ];
 const buttonTextList = [
@@ -37,7 +44,6 @@ const buttonTextList = [
 	"Basis Path Coverage",
 	"Boundary Value Analysis",
 	"PIT Mutation Testing",
-	"Security of Web Data",
 	"SQL Injection Attack"
 ];
 const buttonLinkList = [
@@ -45,7 +51,6 @@ const buttonLinkList = [
 	"basis_path_test_display.html",
 	"bva_test_display.html",
 	"pit_mutation_test_display.html",
-	"security_data_test_display.html",
 	"sql_injection_attack_test_display.html"
 ];
 const innerMapKeys = [
@@ -54,3 +59,4 @@ const innerMapKeys = [
 ];
 
 buildInformationMap();
+buildPageInfoBank();

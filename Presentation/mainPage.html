@@ -5,18 +5,32 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Quality Assurance Demo</title>
 	<style type="text/css">
-		h1{
+		h1, h3{
 			text-align: center;
 		}
-		table, th, td {
+		table{
 			border: 5px solid;
 			text-align: center;
 		}
 		table{
 			width:80%;
+			height: 100%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		table td {
+			border: 5px solid;
+			height: 100px;
+		}
+		table table{
+			width: 100%;
 			height: 40%;
 			margin-left: auto;
 			margin-right: auto;
+		}
+		table table td{
+			width: 33%;
+			border: 0px solid;
 		}
 		button{
 			width: 100%;
@@ -25,19 +39,35 @@
 	</style>
 </head>
 <body>
-	<h1>Testing Suite</h1>
-	<table>
+	<h1 id="page_title"></h1>
+	<table style="border: 0px;">
 		<tr>
-			<td><button id="button_ascii"></button></td>
-			<td><button id="button_basisPath"></button></td>
-			<td><button id="button_bva"></button></td>
+			<td colspan="2">
+				<table style="border: 0px;">
+					<tr>
+						<td><button id="button_ascii"></button></td>
+						<td><button id="button_basisPath"></button></td>
+						<td><button id="button_bva"></button></td>
+					</tr>
+				</table>
+			</td>
 		</tr>
 		<tr>
-			<td><button id="button_pit_mutation"></button></td>
-			<td><button id="button_security_data"></button>
-			<td><button id="button_sql_injection_attack"></button></td>
+		</tr>
+		<tr>
+		</tr>
+		<tr>
+			<td>
+				<table style="border: 0px">
+					<tr>
+						<td><button id="button_pit_mutation"></button></td>
+						<td><button id="button_sql_injection_attack"></button></td>
+					</tr>
+				</table>
+			</td>
 		</tr>
 	</table>
-	<script type="module" src="../../Domain/page_instantiation.js"></script>
+	<h3 id="github_message"></h3>
+	<script type="module" src="../Domain/page_instantiation.js"></script>
 </body>
 </html>

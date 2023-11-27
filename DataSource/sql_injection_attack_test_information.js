@@ -20,14 +20,14 @@ function buildSqlInjectionAttackBank(){
 	sqlInjectionAttackTestTextBank.set("sql_attack_drop_db_content", "Goodbye;\nDROP DATABASE CustomerDatabase;")
 
 	sqlInjectionAttackTestTextBank.set("output_standby", "Awaiting output...");
-	sqlInjectionAttackTestTextBank.set("output_read", "READ attack caught and stopped.");
-	sqlInjectionAttackTestTextBank.set("output_insert", "INSERT attack caught and stopped.");
-	sqlInjectionAttackTestTextBank.set("output_update", "UPDATE attack caught and stopped.");
-	sqlInjectionAttackTestTextBank.set("output_delete", "DELETE attack caught and stopped.");
-	sqlInjectionAttackTestTextBank.set("output_drop", "DB DROP attack caught and stopped.");
+	sqlInjectionAttackTestTextBank.set("output_read", "READ attack caught and mitigated.");
+	sqlInjectionAttackTestTextBank.set("output_insert", "INSERT attack caught and mitigated.");
+	sqlInjectionAttackTestTextBank.set("output_update", "UPDATE attack caught and mitigated.");
+	sqlInjectionAttackTestTextBank.set("output_delete", "DELETE attack caught and mitigated.");
+	sqlInjectionAttackTestTextBank.set("output_drop", "DB DROP attack caught and mitigated.");
 	
 	sqlInjectionAttackTestTextBank.set("button_text", "Attack");
-	sqlInjectionAttackTestTextBank.set("fictional_database_info", "This is a fictional database with customers and their savings.\nAll attacks are prevented by Prepared Statements (with Parameterized Queries).\nCheck the console for the entire query.");
+	sqlInjectionAttackTestTextBank.set("fictional_database_info", "This is a fictional database with customers and their savings.\nAll attacks are mitigated by Prepared Statements (with Parameterized Queries).\nCheck the console for the entire query.");
 }
 
 buildSqlInjectionAttackBank();

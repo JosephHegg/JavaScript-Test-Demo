@@ -3,25 +3,34 @@ export const bvaTestTextBank = new Map();
 function buildBvaTextBank(){
 	var initialSavingsAmount = 1000;
 
-	bvaTestTextBank.set("page-title", "Boundary Value Analysis Demonstration");
-	bvaTestTextBank.set("statement-message", "Enter a INTEGER value from [0, 100]:");
-	bvaTestTextBank.set("statement-value-prompt-text", "Enter a value:");
-	bvaTestTextBank.set("submit-button-text", "Submit Integer Value:");
-	bvaTestTextBank.set("submit-response-text", buildSubmitResponseBank());
+	bvaTestTextBank.set("page_title", "Boundary Value Analysis Demonstration");
+	bvaTestTextBank.set("statement_message", "Enter an INTEGER value from [0, 100]:");
+	bvaTestTextBank.set("statement_value_prompt_text", "Enter a value:");
+	bvaTestTextBank.set("submit_button_text", "Submit Integer Value:");
+	bvaTestTextBank.set("submit_response_text", buildSubmitResponseBank());
 }
 
 function buildSubmitResponseBank(){
-	const var submitResponseMap = new Map();
+	const submitResponseMap = new Map();
 
-	// could make a finite state machine but that seems a bit much for this example
-	// better for real world uses
+	// Could make limits unable to be breached by setting input min and max in html element
+	// But we will make it possible to show how we've tested for it!
 
 	submitResponseMap.set("standby", "Waiting for a submission...");
-	submitResponseMap.set("negative-infinity", "Negative absurd amount caught.");
-	submitResponseMap.set("positive-infinity", "Positive absurd amount caught.");
-	submitResponseMap.set("exact-value", "Exact Amount Caught:");
-	submitResponseMap.set("one-off-value", "Just outside range case caught.");
-	submitResponseMap.set("invalid-type", "Invalid data type entered. Must be an integer.");
+	submitResponseMap.set("negative_infinity", "Negative absurd amount caught:");
+	submitResponseMap.set("positive_infinity", "Positive absurd amount caught:");
+	submitResponseMap.set("exact_value", "Exact valid amount detected:");
+	submitResponseMap.set("standard_value_in_range", "Acceptable normal entry in range detected:");
+	submitResponseMap.set("standard_value_out_of_range", "Invalid non-absurd entry caught:")
+	submitResponseMap.set("one_off_value_accepted", "Just inside range case detected:");
+	submitResponseMap.set("one_off_value_rejected", "Just outside range case caught:");
+
+	// Invalid Type is Caught by setting input type to number, still good to have if this can't be an option!
+	submitResponseMap.set("invalid_type", "Invalid data type entered. Must be a number with type INTEGER.");
+
+	submitResponseMap.set("numeric_non_integer", "We are only accepting full number integers.");
+
+	return submitResponseMap;
 }
 
 buildBvaTextBank();
