@@ -1,10 +1,10 @@
 export const GO_BACK_BUTTON_LINK = "./mainPage.html";
 export const GO_BACK_BUTTON_TEXT = "Go Back to Main Page!";
 export const pageInfoBank = new Map();
-const GITHUB_LINK = "TODO:LINK HERE"
+const GITHUB_LINK = "GitHub";
 
 function buildPageInfoBank() {
-	pageInfoBank.set("page_title", "JavaScript Testing Suite");
+	pageInfoBank.set("page_title", "JavaScript Interview Demo Test Suite");
 	pageInfoBank.set("github_message", "The source code for everything can be found here: " + GITHUB_LINK);
 }
 

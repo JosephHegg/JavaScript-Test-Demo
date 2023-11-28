@@ -25,7 +25,7 @@ function initializeTextFields(){
 
 	page_title.innerHTML = asciiTestTextBank.get("page_title");
 	savings_text_value.innerHTML = asciiTestTextBank.get("savings_text_value");
-	savings_amount_text.innerHTML = asciiTestTextBank.get("savings_amount_text");
+	savings_amount_text.innerHTML = "$" + asciiTestTextBank.get("savings_amount_text");
 
 	payment_value_prompt_naive.innerHTML = asciiTestTextBank.get("payment_value_prompt_naive");
 	payment_value_prompt_check_no_ascii.innerHTML = asciiTestTextBank.get("payment_value_prompt_check_noascii");
@@ -131,10 +131,10 @@ function processEntryRefinedAscii(entry = ""){
 
 function processSavingsPayment(filteredEntry){
 	var savings_amount_text = document.getElementById("savings_amount_text");
-	var savings_amount = parseInt(savings_amount_text.innerHTML);
+	var savings_amount = parseInt(savings_amount_text.innerHTML.slice(1));
 
 	savings_amount -= filteredEntry;
-	savings_amount_text.innerHTML = savings_amount.toString();
+	savings_amount_text.innerHTML = "$" + savings_amount.toString();
 
 	console.log(filteredEntry);
 }
