@@ -5,7 +5,7 @@ const GITHUB_LINK = "GitHub";
 
 function buildPageInfoBank() {
 	pageInfoBank.set("page_title", "JavaScript Interview Demo Test Suite");
-	pageInfoBank.set("github_message", "The source code for everything can be found here: " + GITHUB_LINK);
+	pageInfoBank.set("github_message", "The source code for everything can be found here!");
 }
 
 
