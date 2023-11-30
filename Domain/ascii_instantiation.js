@@ -41,20 +41,20 @@ function initializeTextFields(){
 }
 
 function initializeAllPageListeners(){
-	var payment_submission_naive = document.getElementById("payment_submission_naive");
-	var payment_submission_decent = document.getElementById("payment_submission_decent");
 	var payment_submission_great = document.getElementById("payment_submission_great");
 
 	const INPUT_FIELD_INPUT_REGEX = new RegExp('^[0-9]+$');
 
-	var inputs = [payment_submission_naive, payment_submission_decent, payment_submission_great];
-	for (var input of inputs){
-		input.addEventListener("keypress", event => {
-			if(!INPUT_FIELD_INPUT_REGEX.test(event.key)){
-				event.preventDefault();
-			}
-		});
-	}
+	// naive method uses input type of text
+	// decent method uses input type of number
+	// great method has active listener an input type to prevent alt-entries
+
+	payment_submission_button_great.addEventListener("keypress", event => {
+		if(!INPUT_FIELD_INPUT_REGEX.test(event.key)){
+			event.preventDefault();
+		}
+	});
+	
 
 	initializeButtonListeners();
 }
@@ -131,7 +131,7 @@ function processEntryRefinedAscii(entry = ""){
 
 function processSavingsPayment(filteredEntry){
 	var savings_amount_text = document.getElementById("savings_amount_text");
-	var savings_amount = parseInt(savings_amount_text.innerHTML.slice(1));
+	var savings_amount = parseFloat(savings_amount_text.innerHTML.slice(1));
 
 	savings_amount -= filteredEntry;
 	savings_amount_text.innerHTML = "$" + savings_amount.toString();
