@@ -1,31 +1,10 @@
 import {pitMutationTestTextBank} from '../DataSource/pit_mutation_test_information.js';
-import {GO_BACK_BUTTON_LINK, GO_BACK_BUTTON_TEXT} from '../DataSource/page_information.js';
+import {handleDefaultTextFieldAssignments} from './shared_function_handler.js';
+import {GO_BACK_BUTTON_LINK} from '../DataSource/page_information.js';
 
 function init(){
-	initializeTextFields();
+	handleDefaultTextFieldAssignments(pitMutationTestTextBank);
 	initializeAllPageListeners();
-}
-
-function initializeTextFields(){
-	var page_title = document.getElementById("page_title");
-	var page_message = document.getElementById("page_message");
-	var pit_statement = document.getElementById("pit_statement");
-
-	var submit_button = document.getElementById("submit_button");
-	var end_observation = document.getElementById("end_observation");
-	var end_disclaimer = document.getElementById("end_disclaimer");
-
-	var button_go_back = document.getElementById("button_go_back");
-
-	page_title.innerHTML = pitMutationTestTextBank.get("page_title");
-	page_message.innerHTML = pitMutationTestTextBank.get("page_message");
-	pit_statement.innerHTML = pitMutationTestTextBank.get("pit_statement");
-
-	submit_button.innerHTML = pitMutationTestTextBank.get("submit_button_text");
-	end_observation.innerHTML = pitMutationTestTextBank.get("end_observation_standby");
-	end_disclaimer.innerHTML = pitMutationTestTextBank.get("end_disclaimer");
-
-	button_go_back.innerHTML = GO_BACK_BUTTON_TEXT;
 }
 
 function initializeAllPageListeners(){

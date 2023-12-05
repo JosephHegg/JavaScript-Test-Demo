@@ -1,13 +1,15 @@
+import {GO_BACK_BUTTON_TEXT} from '../DataSource/page_information.js';
 export const bvaTestTextBank = new Map();
 
 function buildBvaTextBank(){
 	var initialSavingsAmount = 1000;
 
+	bvaTestTextBank.set("button_go_back", GO_BACK_BUTTON_TEXT);
 	bvaTestTextBank.set("page_title", "Boundary Value Analysis Demonstration");
 	bvaTestTextBank.set("statement_message", "Enter an INTEGER value from [0, 100]:");
-	bvaTestTextBank.set("statement_value_prompt_text", "Enter a value:");
-	bvaTestTextBank.set("submit_button_text", "Submit Integer Value:");
-	bvaTestTextBank.set("submit_response_text", buildSubmitResponseBank());
+	bvaTestTextBank.set("submit_button", "Submit Integer Value");
+	bvaTestTextBank.set("submit_response_text", "Waiting for a submission...");
+	bvaTestTextBank.set("submit_response_text_options", buildSubmitResponseBank());
 }
 
 function buildSubmitResponseBank(){
@@ -16,7 +18,6 @@ function buildSubmitResponseBank(){
 	// Could make limits unable to be breached by setting input min and max in html element
 	// But we will make it possible to show how we've tested for it!
 
-	submitResponseMap.set("standby", "Waiting for a submission...");
 	submitResponseMap.set("negative_infinity", "Negative absurd amount caught:");
 	submitResponseMap.set("positive_infinity", "Positive absurd amount caught:");
 	submitResponseMap.set("exact_value", "Exact valid amount detected:");
