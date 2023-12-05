@@ -1,43 +1,10 @@
 import {asciiTestTextBank} from '../DataSource/ascii_test_information.js';
-import {GO_BACK_BUTTON_LINK, GO_BACK_BUTTON_TEXT} from '../DataSource/page_information.js';
+import {handleDefaultTextFieldAssignments} from './shared_function_handler.js';
+import {GO_BACK_BUTTON_LINK} from '../DataSource/page_information.js';
 
 function init(){
-	initializeTextFields();
+	handleDefaultTextFieldAssignments(asciiTestTextBank);
 	initializeAllPageListeners();
-}
-
-function initializeTextFields(){
-	var page_title = document.getElementById("page_title");
-	var savings_text_value = document.getElementById("savings_text_value");
-	var savings_amount_text = document.getElementById("savings_amount_text");
-
-	var payment_value_prompt_naive = document.getElementById("payment_value_prompt_naive");
-	var payment_value_prompt_check_no_ascii = document.getElementById("payment_value_prompt_check_noascii");
-	var payment_value_prompt_check_ascii = document.getElementById("payment_value_prompt_check_ascii");
-	
-	var payment_button_naive = document.getElementById("payment_submission_button_naive");
-	var payment_button_decent = document.getElementById("payment_submission_button_decent");
-	var payment_button_great = document.getElementById("payment_submission_button_great");
-
-	var payment_response_text = document.getElementById("payment_response_text");
-	
-	var button_go_back = document.getElementById("button_go_back");
-
-	page_title.innerHTML = asciiTestTextBank.get("page_title");
-	savings_text_value.innerHTML = asciiTestTextBank.get("savings_text_value");
-	savings_amount_text.innerHTML = "$" + asciiTestTextBank.get("savings_amount_text");
-
-	payment_value_prompt_naive.innerHTML = asciiTestTextBank.get("payment_value_prompt_naive");
-	payment_value_prompt_check_no_ascii.innerHTML = asciiTestTextBank.get("payment_value_prompt_check_noascii");
-	payment_value_prompt_check_ascii.innerHTML = asciiTestTextBank.get("payment_value_prompt_check_ascii");
-
-	payment_button_naive.innerHTML = asciiTestTextBank.get("submit_button_text");
-	payment_button_decent.innerHTML = asciiTestTextBank.get("submit_button_text");
-	payment_button_great.innerHTML = asciiTestTextBank.get("submit_button_text");
-
-	payment_response_text.innerHTML = asciiTestTextBank.get("payment_response_text").get("standby");
-
-	button_go_back.innerHTML = GO_BACK_BUTTON_TEXT;
 }
 
 function initializeAllPageListeners(){
@@ -104,22 +71,32 @@ function initializeButtonListeners(){
 function processEntryUnrefined(entry = ""){
 	var payment_response_text = document.getElementById("payment_response_text");
 	try{
+		if(isNaN(parseFloat(entry))){
+			throw new Error('Not a number.');
+		}
 		processSavingsPayment(entry);
 	}
 	catch(err){
-		payment_response_text.innerHTML = asciiTestTextBank.get("payment_response_text").get("failure");
+		payment_response_text.innerHTML = asciiTestTextBank.get("payment_response_text_options").get("failure");
 	}
 }
 
 function processEntryRefinedNoAscii(entry = ""){
 	var payment_response_text = document.getElementById("payment_response_text");
 
+
+	if(isNaN(parseFloat(entry))){
+		console.log("Not a number.");
+		payment_response_text.innerHTML = asciiTestTextBank.get("payment_response_text_options").get("failure");
+		return;
+	}
+
 	processSavingsPayment(entry);
 
 	if(entry.charAt(0) === '-'){
-		payment_response_text.innerHTML = asciiTestTextBank.get("payment_response_text").get("refund_ascii_missed");
+		payment_response_text.innerHTML = asciiTestTextBank.get("payment_response_text_options").get("refund_ascii_missed");
 	} else {
-		payment_response_text.innerHTML = asciiTestTextBank.get("payment_response_text").get("success");
+		payment_response_text.innerHTML = asciiTestTextBank.get("payment_response_text_options").get("success");
 	}
 }
 
@@ -127,12 +104,18 @@ function processEntryRefinedAscii(entry = ""){
 	var filteredEntry = entry.replace(/[\D]/g, "");
 	var payment_response_text = document.getElementById("payment_response_text");
 
+	if(isNaN(parseFloat(filteredEntry))){
+		console.log("Not a number.");
+		payment_response_text.innerHTML = asciiTestTextBank.get("payment_response_text_options").get("failure");
+		return;
+	}
+
 	processSavingsPayment(filteredEntry);
 
 	if(entry.charAt(0) === '-'){
-		payment_response_text.innerHTML = asciiTestTextBank.get("payment_response_text").get("refund_ascii_caught");
+		payment_response_text.innerHTML = asciiTestTextBank.get("payment_response_text_options").get("refund_ascii_caught");
 	} else {
-		payment_response_text.innerHTML = asciiTestTextBank.get("payment_response_text").get("success");
+		payment_response_text.innerHTML = asciiTestTextBank.get("payment_response_text_options").get("success");
 	}
 
 }
@@ -141,16 +124,9 @@ function processSavingsPayment(filteredEntry){
 	var savings_amount_text = document.getElementById("savings_amount_text");
 	var savings_amount = parseFloat(savings_amount_text.innerHTML.slice(1));
 
-	console.log(filteredEntry);
-
-	if(isNaN(parseFloat(filteredEntry))){
-		throw new Error("Not a number.");
-	}
-
 	savings_amount -= filteredEntry;
 	savings_amount_text.innerHTML = "$" + savings_amount.toString();
 
-	console.log(filteredEntry);
 }
 
 

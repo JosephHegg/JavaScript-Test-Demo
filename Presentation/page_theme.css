@@ -28,6 +28,9 @@ button {
 	border-color: yellow;
 	border-width: 5px;
 }
+button:disabled {
+	background-color: darkred;
+}
 input {
 	background-color: black;
 	color: yellow;

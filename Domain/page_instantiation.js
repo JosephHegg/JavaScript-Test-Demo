@@ -1,17 +1,9 @@
 import {buttonInformationMap, pageInfoBank} from '../DataSource/page_information.js';
-
+import {handleDefaultTextFieldAssignments} from './shared_function_handler.js';
 
 function init(){
-	loadTextFields();
+	handleDefaultTextFieldAssignments(pageInfoBank);
 	loadButtons();
-}
-
-function loadTextFields(){
-	var page_title = document.getElementById("page_title");
-	var github_message = document.getElementById("github_message");
-
-	page_title.innerHTML = pageInfoBank.get("page_title");
-	github_message.innerHTML = pageInfoBank.get("github_message");
 }
 
 function loadButtons(){

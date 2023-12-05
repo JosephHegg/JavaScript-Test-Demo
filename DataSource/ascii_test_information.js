@@ -1,16 +1,21 @@
+import {GO_BACK_BUTTON_TEXT} from '../DataSource/page_information.js';
 export const asciiTestTextBank = new Map();
 
 function buildAsciiBank(){
 	var initialSavingsAmount = 1000;
 
+	asciiTestTextBank.set("button_go_back", GO_BACK_BUTTON_TEXT);
 	asciiTestTextBank.set("page_title", "ASCII Entry Demonstration");
 	asciiTestTextBank.set("savings_text_value", "Savings");
-	asciiTestTextBank.set("savings_amount_text", initialSavingsAmount);
+	asciiTestTextBank.set("savings_amount_text", "$" + initialSavingsAmount);
 	asciiTestTextBank.set("payment_value_prompt_naive", "Unwise Submission Check:");
 	asciiTestTextBank.set("payment_value_prompt_check_noascii", "Submission Check Without ASCII Check:");
 	asciiTestTextBank.set("payment_value_prompt_check_ascii", "Submission Check With ASCII Check:");
-	asciiTestTextBank.set("submit_button_text", "Submit Payment");
-	asciiTestTextBank.set("payment_response_text", buildPaymentResponseBank());
+	asciiTestTextBank.set("payment_submission_button_naive", "Submit Payment");
+	asciiTestTextBank.set("payment_submission_button_decent", "Submit Payment");
+	asciiTestTextBank.set("payment_submission_button_great", "Submit Payment");
+	asciiTestTextBank.set("payment_response_text", "Waiting for a payment...");
+	asciiTestTextBank.set("payment_response_text_options", buildPaymentResponseBank());
 }
 
 function buildPaymentResponseBank(){
